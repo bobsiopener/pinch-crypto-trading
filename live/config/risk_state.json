@@ -1,0 +1,8 @@
+{
+  "high_water_mark": 752.47,
+  "consecutive_losses": 0,
+  "last_trade_date": null,
+  "circuit_breaker_status": "OK",
+  "kill_switch_armed": true,
+  "last_health_check": null
+}
