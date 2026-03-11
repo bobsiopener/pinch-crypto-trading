@@ -1,0 +1,16 @@
+[Unit]
+Description=Pinch Crypto Market Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=bob
+WorkingDirectory=/tmp/pinch-crypto-trading
+ExecStart=/usr/bin/python3 /tmp/pinch-crypto-trading/live/monitor/market_monitor.py run
+Restart=always
+RestartSec=30
+Environment=HOME=/home/bob
+Environment=PATH=/usr/bin:/home/bob/.npm-global/bin
+
+[Install]
+WantedBy=multi-user.target
