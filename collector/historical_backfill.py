@@ -25,19 +25,35 @@ import requests
 # Add parent dir for imports
 sys.path.insert(0, os.path.dirname(__file__))
 from db import MarketDB
+import config as cfg
 
 # ---------------------------------------------------------------------------
-# Symbol definitions
+# Symbol definitions — sourced from config.py for automatic updates
 # ---------------------------------------------------------------------------
 
-ETF_SYMBOLS = ['SPY', 'QQQ', 'IWM', 'GLD', 'TLT', 'XLE']
-STOCK_SYMBOLS = ['AAPL', 'NVDA', 'MSFT', 'GOOG', 'AMZN', 'TSLA',
-                 'AMD', 'PLTR', 'ANET', 'META', 'AVGO', 'BRK-B',
-                 'CSCO', 'WFC', 'ORCL', 'MSTR']
-ALL_EQUITY_SYMBOLS = ETF_SYMBOLS + STOCK_SYMBOLS
+# Classify equities from config: symbols with '-' are typically ETF shares
+# (BRK-B), everything in ETF_BASE_LIST is an ETF, rest are stocks
+ETF_BASE_LIST = {'SPY', 'QQQ', 'IWM', 'GLD', 'TLT', 'XLE',
+                 'XLK', 'XLF', 'XLV', 'XBI', 'ARKK', 'SMH',
+                 'EEM', 'FXI', 'EWJ', 'HYG', 'LQD', 'SHY',
+                 'SLV', 'USO', 'UNG', 'COPX'}
 
-CRYPTO_YF = ['BTC-USD', 'ETH-USD', 'SOL-USD', 'XRP-USD', 'BNB-USD',
-             'DOGE-USD', 'ADA-USD', 'AVAX-USD', 'DOT-USD', 'LINK-USD']
+def _classify_equity(symbol):
+    if symbol in ETF_BASE_LIST:
+        return 'etf'
+    return 'stock'
+
+ALL_EQUITY_SYMBOLS = cfg.STOCK_SYMBOLS  # includes both stocks and ETFs
+
+# yfinance crypto tickers — special-case mappings for coins not listed as SYMBOL-USD
+CRYPTO_YF_OVERRIDES = {
+    'ARB': 'ARB11841-USD',  # Arbitrum token ID on yfinance
+}
+
+def _crypto_yf_ticker(symbol):
+    return CRYPTO_YF_OVERRIDES.get(symbol, f'{symbol}-USD')
+
+CRYPTO_YF = [_crypto_yf_ticker(s) for s in cfg.CRYPTO_SYMBOLS]
 
 # Kraken pair -> our clean symbol
 KRAKEN_PAIRS = {
@@ -46,26 +62,8 @@ KRAKEN_PAIRS = {
     'SOLUSD':   'SOL',
 }
 
-FRED_SERIES = {
-    'DGS2':               '2-Year Treasury',
-    'DGS5':               '5-Year Treasury',
-    'DGS10':              '10-Year Treasury',
-    'DGS30':              '30-Year Treasury',
-    'T10Y2Y':             '10Y-2Y Spread',
-    'VIXCLS':             'VIX',
-    'UNRATE':             'Unemployment Rate',
-    'CPIAUCSL':           'CPI All Items',
-    'PCEPI':              'PCE Price Index',
-    'FEDFUNDS':           'Fed Funds Rate',
-    'M2SL':               'M2 Money Supply',
-    'ICSA':               'Initial Jobless Claims',
-    'UMCSENT':            'Consumer Sentiment',
-    'DCOILWTICO':         'WTI Crude Oil',
-    'DCOILBRENTEU':       'Brent Crude',
-    'GOLDPMGBD228NLBM':   'Gold London PM Fix',
-    'DHHNGSP':            'Natural Gas Henry Hub',
-    'BAMLH0A0HYM2':       'HY OAS Spread',
-}
+# Use FRED series from config (authoritative list)
+FRED_SERIES = cfg.FRED_SERIES
 
 BLOCKCHAIN_CHARTS = {
     'hash-rate':                       'hash_rate',
@@ -85,7 +83,11 @@ def _now():
 
 
 def _yf_symbol_to_clean(yf_sym):
-    """'BTC-USD' -> 'BTC'"""
+    """'BTC-USD' -> 'BTC', 'ARB11841-USD' -> 'ARB' (reverse override lookup)"""
+    # Reverse-lookup from CRYPTO_YF_OVERRIDES
+    for sym, ticker in CRYPTO_YF_OVERRIDES.items():
+        if ticker == yf_sym:
+            return sym
     return yf_sym.split('-')[0]
 
 
@@ -93,12 +95,6 @@ def _date_to_ts(date_str):
     """'2023-01-15' -> unix int"""
     dt = datetime.datetime.strptime(date_str, '%Y-%m-%d')
     return int(dt.replace(tzinfo=datetime.timezone.utc).timestamp())
-
-
-def _classify_equity(symbol):
-    if symbol in ETF_SYMBOLS:
-        return 'etf'
-    return 'stock'
 
 
 def _http_get(url, params=None, timeout=30, retries=3, backoff=2):
