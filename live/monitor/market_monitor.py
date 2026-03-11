@@ -67,15 +67,26 @@ def ts_et(dt: datetime) -> str:
     return dt.strftime("%Y-%m-%d %H:%M ET")
 
 # ─────────────────────────────────────────────
-# Macro Calendar (hardcoded baseline)
+# Macro Calendar — loaded from external JSON file
 # ─────────────────────────────────────────────
-MACRO_CALENDAR = [
-    {"date": "2026-03-12", "time": "08:30", "event": "PPI",                    "importance": "medium"},
-    {"date": "2026-03-13", "time": "08:30", "event": "Core PCE",               "importance": "high"},
-    {"date": "2026-03-18", "time": "14:00", "event": "FOMC Decision",          "importance": "critical"},
-    {"date": "2026-03-18", "time": "14:30", "event": "Powell Press Conference","importance": "critical"},
-    {"date": "2026-04-04", "time": "08:30", "event": "NFP",                    "importance": "high"},
-]
+CALENDAR_FILE = os.path.join(os.path.dirname(__file__), "macro_calendar.json")
+
+def _load_calendar_file() -> list:
+    """Load events from macro_calendar.json. Falls back to empty list."""
+    try:
+        with open(CALENDAR_FILE, "r") as f:
+            data = json.load(f)
+        events = data.get("events", [])
+        logger.info(f"Loaded {len(events)} events from {CALENDAR_FILE}")
+        return events
+    except FileNotFoundError:
+        logger.warning(f"Calendar file not found: {CALENDAR_FILE} — no scheduled events")
+        return []
+    except json.JSONDecodeError as e:
+        logger.error(f"Calendar file JSON error: {e} — no scheduled events")
+        return []
+
+MACRO_CALENDAR = _load_calendar_file()
 
 # ─────────────────────────────────────────────
 # Alert thresholds
@@ -341,9 +352,10 @@ def check_grid(state: dict):
 # Macro calendar helpers
 # ─────────────────────────────────────────────
 def load_calendar(state: dict) -> list:
-    """Return merged calendar: hardcoded + any user-added events from state."""
-    user_events = state.get("user_events", [])
-    return MACRO_CALENDAR + user_events
+    """Return calendar from macro_calendar.json (reloaded each cycle for hot updates)."""
+    global MACRO_CALENDAR
+    MACRO_CALENDAR = _load_calendar_file()
+    return MACRO_CALENDAR
 
 
 def parse_event_dt(event: dict) -> datetime:
@@ -597,16 +609,33 @@ def cmd_test_alert():
 
 
 def cmd_add_event(date: str, time_str: str, event_name: str, importance: str):
-    state = load_state()
-    user_events = state.setdefault("user_events", [])
-    user_events.append({
+    """Add an event to macro_calendar.json (persistent, not in state)."""
+    try:
+        with open(CALENDAR_FILE, "r") as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        data = {"events": []}
+
+    new_event = {
         "date": date,
         "time": time_str,
         "event": event_name,
         "importance": importance,
-    })
-    save_state(state)
+    }
+    data["events"].append(new_event)
+
+    # Sort by date+time
+    data["events"].sort(key=lambda e: f"{e['date']} {e['time']}")
+
+    with open(CALENDAR_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+    # Reload global calendar
+    global MACRO_CALENDAR
+    MACRO_CALENDAR = data["events"]
+
     print(f"✅ Added event: {event_name} on {date} at {time_str} ({importance})")
+    print(f"   Calendar now has {len(MACRO_CALENDAR)} events")
 
 
 def cmd_run():
@@ -680,6 +709,21 @@ if __name__ == "__main__":
             print("  e.g: market_monitor.py add-event 2026-03-25 08:30 'CPI March' high")
             sys.exit(1)
         cmd_add_event(args[1], args[2], args[3], args[4])
+
+    elif args[0] in ("list-events", "events", "calendar"):
+        events = _load_calendar_file()
+        now = now_et()
+        print(f"\n📅 Macro Calendar — {len(events)} events loaded\n")
+        print(f"{'Date':12} {'Time':6} {'Importance':10} {'Event'}")
+        print("-" * 60)
+        for e in events:
+            dt = parse_event_dt(e)
+            marker = " ← NEXT" if dt > now and not any(
+                parse_event_dt(x) > now and parse_event_dt(x) < dt for x in events
+            ) else ""
+            past = " (past)" if dt < now else ""
+            print(f"{e['date']:12} {e['time']:6} {e['importance']:10} {e['event']}{past}{marker}")
+        print()
 
     else:
         print(__doc__)

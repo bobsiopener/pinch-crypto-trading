@@ -1,0 +1,14 @@
+{
+  "start_ts": 1773238138.1549878,
+  "last_btc": 70015.6,
+  "last_eth": 2043.45,
+  "calendar_alerted": {
+    "2026-03-12_08:30_PPI": [],
+    "2026-03-13_08:30_Core PCE": [],
+    "2026-03-18_14:00_FOMC Decision": [],
+    "2026-03-18_14:30_Powell Press Conference": [],
+    "2026-04-04_08:30_NFP": []
+  },
+  "last_heartbeat": 1773238142.5316064,
+  "last_save_ts": 1773238387.4090788
+}

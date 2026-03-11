@@ -1,0 +1,156 @@
+{
+  "_comment": "Macro event calendar for market monitor. Add events here, not in code.",
+  "_format": "date: YYYY-MM-DD, time: HH:MM (ET), importance: low|medium|high|critical",
+  "events": [
+    {
+      "date": "2026-03-12",
+      "time": "08:30",
+      "event": "PPI (February)",
+      "importance": "medium"
+    },
+    {
+      "date": "2026-03-13",
+      "time": "08:30",
+      "event": "Core PCE (February)",
+      "importance": "high"
+    },
+    {
+      "date": "2026-03-14",
+      "time": "10:00",
+      "event": "UMich Consumer Sentiment",
+      "importance": "medium"
+    },
+    {
+      "date": "2026-03-18",
+      "time": "14:00",
+      "event": "FOMC Decision",
+      "importance": "critical"
+    },
+    {
+      "date": "2026-03-18",
+      "time": "14:30",
+      "event": "Powell Press Conference",
+      "importance": "critical"
+    },
+    {
+      "date": "2026-03-19",
+      "time": "08:30",
+      "event": "Housing Starts",
+      "importance": "low"
+    },
+    {
+      "date": "2026-03-20",
+      "time": "08:30",
+      "event": "Initial Jobless Claims",
+      "importance": "low"
+    },
+    {
+      "date": "2026-03-20",
+      "time": "16:00",
+      "event": "GEMI Options Expiry",
+      "importance": "high"
+    },
+    {
+      "date": "2026-03-26",
+      "time": "10:00",
+      "event": "Consumer Confidence",
+      "importance": "medium"
+    },
+    {
+      "date": "2026-03-27",
+      "time": "08:30",
+      "event": "GDP (Q4 Final)",
+      "importance": "medium"
+    },
+    {
+      "date": "2026-03-28",
+      "time": "08:30",
+      "event": "PCE Price Index (February)",
+      "importance": "high"
+    },
+    {
+      "date": "2026-03-28",
+      "time": "16:00",
+      "event": "BTC Monthly Options Expiry",
+      "importance": "high"
+    },
+    {
+      "date": "2026-04-01",
+      "time": "10:00",
+      "event": "ISM Manufacturing PMI",
+      "importance": "medium"
+    },
+    {
+      "date": "2026-04-03",
+      "time": "10:00",
+      "event": "ISM Services PMI",
+      "importance": "medium"
+    },
+    {
+      "date": "2026-04-04",
+      "time": "08:30",
+      "event": "NFP (March)",
+      "importance": "high"
+    },
+    {
+      "date": "2026-04-10",
+      "time": "08:30",
+      "event": "CPI (March)",
+      "importance": "critical"
+    },
+    {
+      "date": "2026-04-11",
+      "time": "08:30",
+      "event": "PPI (March)",
+      "importance": "medium"
+    },
+    {
+      "date": "2026-04-25",
+      "time": "08:30",
+      "event": "PCE Price Index (March)",
+      "importance": "high"
+    },
+    {
+      "date": "2026-04-25",
+      "time": "16:00",
+      "event": "BTC Monthly Options Expiry",
+      "importance": "high"
+    },
+    {
+      "date": "2026-04-29",
+      "time": "14:00",
+      "event": "FOMC Decision",
+      "importance": "critical"
+    },
+    {
+      "date": "2026-04-29",
+      "time": "14:30",
+      "event": "Powell Press Conference",
+      "importance": "critical"
+    },
+    {
+      "date": "2026-05-08",
+      "time": "08:30",
+      "event": "NFP (April)",
+      "importance": "high"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "08:30",
+      "event": "CPI (April)",
+      "importance": "critical"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "14:00",
+      "event": "FOMC Decision",
+      "importance": "critical"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "14:30",
+      "event": "Powell Press Conference",
+      "importance": "critical"
+    }
+  ]
+}
