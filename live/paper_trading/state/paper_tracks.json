@@ -1,0 +1,30 @@
+{
+  "tracks": {
+    "A": {
+      "name": "Macro Swing v2",
+      "start_date": "2026-03-11",
+      "starting_capital": 752.0,
+      "current_value": 752.0,
+      "allocated_capital": 376.0,
+      "cash": 376.0,
+      "trades": [],
+      "daily_snapshots": []
+    },
+    "B": {
+      "name": "Grid Trading",
+      "start_date": "2026-03-11",
+      "starting_capital": 376.0,
+      "current_value": 376.0,
+      "trades": [],
+      "daily_snapshots": []
+    },
+    "C": {
+      "name": "Full Hybrid",
+      "start_date": "2026-03-11",
+      "starting_capital": 752.0,
+      "current_value": 752.0,
+      "trades": [],
+      "daily_snapshots": []
+    }
+  }
+}
