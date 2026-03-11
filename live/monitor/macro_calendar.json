@@ -63,15 +63,16 @@
       "importance": "medium"
     },
     {
-      "date": "2026-03-28",
-      "time": "08:30",
-      "event": "PCE Price Index (February)",
-      "importance": "high"
+      "date": "2026-03-27",
+      "time": "08:00",
+      "event": "BTC Options Expiry — Quarterly (Deribit)",
+      "importance": "high",
+      "meta": { "type": "options_expiry", "currency": "BTC", "period": "quarterly", "note": "Last Friday of March — 2-5x normal OI; strongest max pain gravitational pull" }
     },
     {
       "date": "2026-03-28",
-      "time": "16:00",
-      "event": "BTC Monthly Options Expiry",
+      "time": "08:30",
+      "event": "PCE Price Index (February)",
       "importance": "high"
     },
     {
@@ -105,15 +106,16 @@
       "importance": "medium"
     },
     {
-      "date": "2026-04-25",
-      "time": "08:30",
-      "event": "PCE Price Index (March)",
-      "importance": "high"
+      "date": "2026-04-24",
+      "time": "08:00",
+      "event": "BTC Options Expiry — Monthly (Deribit)",
+      "importance": "medium",
+      "meta": { "type": "options_expiry", "currency": "BTC", "period": "monthly" }
     },
     {
       "date": "2026-04-25",
-      "time": "16:00",
-      "event": "BTC Monthly Options Expiry",
+      "time": "08:30",
+      "event": "PCE Price Index (March)",
       "importance": "high"
     },
     {
@@ -141,6 +143,13 @@
       "importance": "critical"
     },
     {
+      "date": "2026-05-29",
+      "time": "08:00",
+      "event": "BTC Options Expiry — Monthly (Deribit)",
+      "importance": "medium",
+      "meta": { "type": "options_expiry", "currency": "BTC", "period": "monthly" }
+    },
+    {
       "date": "2026-06-17",
       "time": "14:00",
       "event": "FOMC Decision",
@@ -151,6 +160,13 @@
       "time": "14:30",
       "event": "Powell Press Conference",
       "importance": "critical"
+    },
+    {
+      "date": "2026-06-26",
+      "time": "08:00",
+      "event": "BTC Options Expiry — Quarterly (Deribit)",
+      "importance": "high",
+      "meta": { "type": "options_expiry", "currency": "BTC", "period": "quarterly", "note": "Last Friday of June — 2-5x normal OI; strongest max pain gravitational pull" }
     }
   ]
 }
