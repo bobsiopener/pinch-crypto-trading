@@ -19,7 +19,7 @@ import urllib.parse
 from datetime import datetime, timezone, timedelta
 
 # ── Paths ────────────────────────────────────────────────────────────────────
-BASE = "/tmp/pinch-crypto-trading"
+BASE = "/home/bob/AI_sandbox/pinch-crypto-trading"
 SECRETS_DIR = "/home/bob/.openclaw/workspace-pinch/.secrets"
 
 PAPER_TRACKS    = f"{BASE}/live/paper_trading/state/paper_tracks.json"

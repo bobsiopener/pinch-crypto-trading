@@ -36,7 +36,7 @@
     "2167.0": {
       "price": 2167.0,
       "qty": 0.04,
-      "status": "open",
+      "status": "filled",
       "level": 1
     },
     "2317.0": {
@@ -64,9 +64,18 @@
       "level": 5
     }
   },
-  "fill_history": [],
-  "inventory": 0.0,
-  "cash": 376.0,
+  "fill_history": [
+    {
+      "type": "sell",
+      "price": 2167.0,
+      "qty": 0.04,
+      "timestamp": "2026-03-13T09:18:12-04:00",
+      "eth_price": 2179.23,
+      "note": "Retroactive fill \u2014 bug in grid detection fixed, actual ETH price was $2,179.23 at 9:18 AM ET"
+    }
+  ],
+  "inventory": -0.04,
+  "cash": 462.68,
   "realized_pnl": 0.0,
   "setup_time": "2026-03-11T06:10:44.838853+00:00",
   "pair": "ETHUSD",

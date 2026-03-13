@@ -294,12 +294,33 @@ def check_grid(state: dict):
     if eth_price is None:
         return
 
-    levels = grid.get("levels", [])
+    # Build unified levels list from buy_orders/sell_orders dicts
+    levels = []
+    for price_str, order in grid.get("buy_orders", {}).items():
+        levels.append({
+            "id": f"buy_{price_str}",
+            "type": "buy",
+            "price": float(order.get("price", price_str)),
+            "qty": float(order.get("qty", 0)),
+            "status": order.get("status", "open"),
+        })
+    for price_str, order in grid.get("sell_orders", {}).items():
+        levels.append({
+            "id": f"sell_{price_str}",
+            "type": "sell",
+            "price": float(order.get("price", price_str)),
+            "qty": float(order.get("qty", 0)),
+            "status": order.get("status", "open"),
+        })
+    # Also support legacy "levels" array format
+    if not levels and "levels" in grid:
+        levels = grid["levels"]
+
     filled_ids = set(state.get("grid_filled_ids", []))
 
     for lvl in levels:
-        lvl_id   = str(lvl.get("id", ""))
-        lvl_type = lvl.get("type", "").lower()   # "buy" or "sell"
+        lvl_id    = str(lvl.get("id", ""))
+        lvl_type  = lvl.get("type", "").lower()
         lvl_price = float(lvl.get("price", 0))
         lvl_qty   = float(lvl.get("qty", 0))
         status    = lvl.get("status", "open")

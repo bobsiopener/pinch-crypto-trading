@@ -1,14 +1,66 @@
 {
   "start_ts": 1773238138.1549878,
-  "last_btc": 70015.6,
-  "last_eth": 2043.45,
+  "last_btc": 71352.2,
+  "last_eth": 2109.15,
   "calendar_alerted": {
     "2026-03-12_08:30_PPI": [],
     "2026-03-13_08:30_Core PCE": [],
     "2026-03-18_14:00_FOMC Decision": [],
     "2026-03-18_14:30_Powell Press Conference": [],
-    "2026-04-04_08:30_NFP": []
+    "2026-04-04_08:30_NFP": [],
+    "2026-03-12_08:30_PPI (February)": [
+      "30m",
+      "5m",
+      "on_event",
+      "post_eval"
+    ],
+    "2026-03-13_08:30_Core PCE (February)": [
+      "30m",
+      "5m",
+      "on_event",
+      "post_eval"
+    ],
+    "2026-03-14_10:00_UMich Consumer Sentiment": [],
+    "2026-03-19_08:30_Housing Starts": [],
+    "2026-03-20_08:30_Initial Jobless Claims": [],
+    "2026-03-20_16:00_GEMI Options Expiry": [],
+    "2026-03-26_10:00_Consumer Confidence": [],
+    "2026-03-27_08:30_GDP (Q4 Final)": [],
+    "2026-03-28_08:30_PCE Price Index (February)": [],
+    "2026-03-28_16:00_BTC Monthly Options Expiry": [],
+    "2026-04-01_10:00_ISM Manufacturing PMI": [],
+    "2026-04-03_10:00_ISM Services PMI": [],
+    "2026-04-04_08:30_NFP (March)": [],
+    "2026-04-10_08:30_CPI (March)": [],
+    "2026-04-11_08:30_PPI (March)": [],
+    "2026-04-25_08:30_PCE Price Index (March)": [],
+    "2026-04-25_16:00_BTC Monthly Options Expiry": [],
+    "2026-04-29_14:00_FOMC Decision": [],
+    "2026-04-29_14:30_Powell Press Conference": [],
+    "2026-05-08_08:30_NFP (April)": [],
+    "2026-05-13_08:30_CPI (April)": [],
+    "2026-06-17_14:00_FOMC Decision": [],
+    "2026-06-17_14:30_Powell Press Conference": [],
+    "2026-03-27_08:00_BTC Options Expiry \u2014 Quarterly (Deribit)": [],
+    "2026-04-24_08:00_BTC Options Expiry \u2014 Monthly (Deribit)": [],
+    "2026-05-29_08:00_BTC Options Expiry \u2014 Monthly (Deribit)": [],
+    "2026-06-26_08:00_BTC Options Expiry \u2014 Quarterly (Deribit)": []
   },
-  "last_heartbeat": 1773238142.5316064,
-  "last_save_ts": 1773238387.4090788
+  "last_heartbeat": 1773425870.0323951,
+  "last_save_ts": 1773432913.5173502,
+  "price_at_2026-03-12_08:30_PPI (February)": {
+    "btc": 70417.6,
+    "eth": 2064.52,
+    "ts": 1773318493.4532583
+  },
+  "post_eval_2026-03-12_08:30_PPI (February)": 1773319393.4532583,
+  "price_at_2026-03-13_08:30_Core PCE (February)": {
+    "btc": 72387.1,
+    "eth": 2130.32,
+    "ts": 1773404883.4190345
+  },
+  "post_eval_2026-03-13_08:30_Core PCE (February)": 1773405783.4190345,
+  "grid_filled_ids": [
+    "sell_2167.0"
+  ]
 }

@@ -1,0 +1,3 @@
+timestamp_et,event,importance,btc_move_pct,eth_move_pct,score,direction
+2026-03-12 08:43,PPI (February),medium,0.02,0.07,0,NEUTRAL
+2026-03-13 08:43,Core PCE (February),high,0.04,0.04,0,NEUTRAL

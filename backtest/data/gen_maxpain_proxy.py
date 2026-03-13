@@ -218,7 +218,7 @@ for year in range(2022, 2027):
             'is_quarterly': is_quarterly,
         })
 
-output_path = '/tmp/pinch-crypto-trading/backtest/data/maxpain_proxy.csv'
+output_path = '/home/bob/AI_sandbox/pinch-crypto-trading/backtest/data/maxpain_proxy.csv'
 with open(output_path, 'w', newline='') as f:
     writer = csv.DictWriter(f, fieldnames=['expiry_date','max_pain','btc_price_at_start_of_week','btc_price_at_expiry','is_quarterly'])
     writer.writeheader()
