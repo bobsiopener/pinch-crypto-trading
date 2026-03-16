@@ -120,7 +120,7 @@ signal.signal(signal.SIGTERM, _sighandler)
 def send_discord(message: str) -> bool:
     """Send a message to the Discord investments channel via openclaw CLI."""
     cmd = [
-        "openclaw", "message", "send",
+        "/home/bob/.npm-global/bin/openclaw", "message", "send",
         "--channel", "discord",
         "--account", DISCORD_ACCT,
         "--target", DISCORD_TARGET,
@@ -141,7 +141,7 @@ def send_discord(message: str) -> bool:
 def trigger_agent(message: str) -> bool:
     """Trigger the Pinch agent for a trade decision."""
     cmd = [
-        "openclaw", "agent",
+        "/home/bob/.npm-global/bin/openclaw", "agent",
         "--agent", "pinch",
         "--channel", "discord",
         "-m", message,

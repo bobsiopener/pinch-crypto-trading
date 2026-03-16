@@ -14,7 +14,7 @@
       "name": "Grid Trading",
       "start_date": "2026-03-11",
       "starting_capital": 376.0,
-      "current_value": 462.68,
+      "current_value": 555.17,
       "trades": [
         {
           "type": "sell",
@@ -24,6 +24,15 @@
           "value": 86.68,
           "timestamp": "2026-03-13T09:18:12-04:00",
           "note": "Grid sell level 1 hit (retroactive \u2014 monitor bug fixed)"
+        },
+        {
+          "type": "sell",
+          "symbol": "ETH",
+          "price": 2317.0,
+          "qty": 0.04,
+          "value": 92.68,
+          "timestamp": "2026-03-16T13:46:25-04:00",
+          "note": "Grid sell level 2 hit (retroactive \u2014 paper_trader KeyError fix)"
         }
       ],
       "daily_snapshots": []

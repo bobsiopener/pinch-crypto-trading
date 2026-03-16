@@ -1,7 +1,7 @@
 {
   "start_ts": 1773238138.1549878,
-  "last_btc": 71352.2,
-  "last_eth": 2109.15,
+  "last_btc": 74636.4,
+  "last_eth": 2349.71,
   "calendar_alerted": {
     "2026-03-12_08:30_PPI": [],
     "2026-03-13_08:30_Core PCE": [],
@@ -20,7 +20,12 @@
       "on_event",
       "post_eval"
     ],
-    "2026-03-14_10:00_UMich Consumer Sentiment": [],
+    "2026-03-14_10:00_UMich Consumer Sentiment": [
+      "30m",
+      "5m",
+      "on_event",
+      "post_eval"
+    ],
     "2026-03-19_08:30_Housing Starts": [],
     "2026-03-20_08:30_Initial Jobless Claims": [],
     "2026-03-20_16:00_GEMI Options Expiry": [],
@@ -46,8 +51,8 @@
     "2026-05-29_08:00_BTC Options Expiry \u2014 Monthly (Deribit)": [],
     "2026-06-26_08:00_BTC Options Expiry \u2014 Quarterly (Deribit)": []
   },
-  "last_heartbeat": 1773425870.0323951,
-  "last_save_ts": 1773432913.5173502,
+  "last_heartbeat": 1773700340.5284255,
+  "last_save_ts": 1773702172.9551084,
   "price_at_2026-03-12_08:30_PPI (February)": {
     "btc": 70417.6,
     "eth": 2064.52,
@@ -60,7 +65,10 @@
     "ts": 1773404883.4190345
   },
   "post_eval_2026-03-13_08:30_Core PCE (February)": 1773405783.4190345,
-  "grid_filled_ids": [
-    "sell_2167.0"
-  ]
+  "price_at_2026-03-14_10:00_UMich Consumer Sentiment": {
+    "btc": 70888.9,
+    "eth": 2079.03,
+    "ts": 1773496721.4569802
+  },
+  "post_eval_2026-03-14_10:00_UMich Consumer Sentiment": 1773497621.4569802
 }

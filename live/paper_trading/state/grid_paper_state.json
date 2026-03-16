@@ -30,6 +30,12 @@
       "qty": 0.06,
       "status": "open",
       "level": 5
+    },
+    "2167.0": {
+      "price": 2167.0,
+      "qty": 0.04,
+      "status": "open",
+      "level": "counter"
     }
   },
   "sell_orders": {
@@ -42,8 +48,10 @@
     "2317.0": {
       "price": 2317.0,
       "qty": 0.04,
-      "status": "open",
-      "level": 2
+      "status": "filled",
+      "level": 2,
+      "fill_time": "2026-03-16T23:01:51.146254+00:00",
+      "fee_paid": 0.19
     },
     "2467.0": {
       "price": 2467.0,
@@ -66,17 +74,27 @@
   },
   "fill_history": [
     {
-      "type": "sell",
       "price": 2167.0,
       "qty": 0.04,
       "timestamp": "2026-03-13T09:18:12-04:00",
       "eth_price": 2179.23,
-      "note": "Retroactive fill \u2014 bug in grid detection fixed, actual ETH price was $2,179.23 at 9:18 AM ET"
+      "note": "Retroactive fill \u2014 bug in grid detection fixed, actual ETH price was $2,179.23 at 9:18 AM ET",
+      "side": "sell",
+      "fill_price": 2167.0
+    },
+    {
+      "side": "sell",
+      "price": 2317.0,
+      "qty": 0.04,
+      "fee": 0.19,
+      "proceeds": 92.49,
+      "pnl": 5.81,
+      "time": "2026-03-16T23:01:51.146285+00:00"
     }
   ],
-  "inventory": -0.04,
-  "cash": 462.68,
-  "realized_pnl": 0.0,
+  "inventory": -0.08,
+  "cash": 555.17,
+  "realized_pnl": 5.81,
   "setup_time": "2026-03-11T06:10:44.838853+00:00",
   "pair": "ETHUSD",
   "grid_spacing": 150.0,
