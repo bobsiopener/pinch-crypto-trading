@@ -230,6 +230,31 @@ def collect_stock_prices() -> int:
             log.error(f"  {symbol}: ERROR {e}")
         time.sleep(DELAY_BETWEEN)
 
+    # VIX index — special handling (not a stock, uses ^VIX ticker)
+    try:
+        vix = yf.Ticker('^VIX')
+        hist = vix.history(period='5d')
+        if not hist.empty:
+            for date, row in hist.iterrows():
+                ts = int(date.timestamp())
+                conn.execute("""INSERT OR IGNORE INTO prices
+                    (symbol, asset_class, timeframe, timestamp, open, high, low, close, volume, source)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                    ('VIX', 'index', '1d', ts,
+                     float(row.get('Open', 0) or 0),
+                     float(row.get('High', 0) or 0),
+                     float(row.get('Low', 0) or 0),
+                     float(row.get('Close', 0) or 0),
+                     float(row.get('Volume', 0) or 0),
+                     'yahoo'))
+            conn.commit()
+            total += len(hist)
+            print(f"  VIX: {len(hist)} days updated")
+        else:
+            print("  VIX: no data")
+    except Exception as e:
+        print(f"  VIX failed: {e}")
+
     ms = int((time.time() - t0) * 1000)
     _log(conn, 'stock_prices', 'success', total, ms)
     print(f"[prices] Done — {total} rows in {ms}ms")

@@ -1,0 +1,9 @@
+[Unit]
+Description=Pinch Fundamental Data Collector (Weekly)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/mnt/media/market_data/collector
+ExecStart=/usr/bin/python3 fundamentals_collector.py
+Environment=PINCH_DB=/mnt/media/market_data/pinch_market.db
+Environment=FRED_API_KEY=3a0164644a3bbe2bb83d31c6b5209356
