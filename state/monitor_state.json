@@ -1,12 +1,22 @@
 {
   "start_ts": 1773238138.1549878,
-  "last_btc": 74636.4,
-  "last_eth": 2349.71,
+  "last_btc": 69642.6,
+  "last_eth": 2130.93,
   "calendar_alerted": {
     "2026-03-12_08:30_PPI": [],
     "2026-03-13_08:30_Core PCE": [],
-    "2026-03-18_14:00_FOMC Decision": [],
-    "2026-03-18_14:30_Powell Press Conference": [],
+    "2026-03-18_14:00_FOMC Decision": [
+      "30m",
+      "5m",
+      "on_event",
+      "post_eval"
+    ],
+    "2026-03-18_14:30_Powell Press Conference": [
+      "30m",
+      "5m",
+      "on_event",
+      "post_eval"
+    ],
     "2026-04-04_08:30_NFP": [],
     "2026-03-12_08:30_PPI (February)": [
       "30m",
@@ -26,7 +36,12 @@
       "on_event",
       "post_eval"
     ],
-    "2026-03-19_08:30_Housing Starts": [],
+    "2026-03-19_08:30_Housing Starts": [
+      "30m",
+      "5m",
+      "on_event",
+      "post_eval"
+    ],
     "2026-03-20_08:30_Initial Jobless Claims": [],
     "2026-03-20_16:00_GEMI Options Expiry": [],
     "2026-03-26_10:00_Consumer Confidence": [],
@@ -51,8 +66,8 @@
     "2026-05-29_08:00_BTC Options Expiry \u2014 Monthly (Deribit)": [],
     "2026-06-26_08:00_BTC Options Expiry \u2014 Quarterly (Deribit)": []
   },
-  "last_heartbeat": 1773700340.5284255,
-  "last_save_ts": 1773702172.9551084,
+  "last_heartbeat": 1773916962.592937,
+  "last_save_ts": 1773929499.6479406,
   "price_at_2026-03-12_08:30_PPI (February)": {
     "btc": 70417.6,
     "eth": 2064.52,
@@ -70,5 +85,23 @@
     "eth": 2079.03,
     "ts": 1773496721.4569802
   },
-  "post_eval_2026-03-14_10:00_UMich Consumer Sentiment": 1773497621.4569802
+  "post_eval_2026-03-14_10:00_UMich Consumer Sentiment": 1773497621.4569802,
+  "price_at_2026-03-18_14:00_FOMC Decision": {
+    "btc": 71632.0,
+    "eth": 2203.92,
+    "ts": 1773856739.0849917
+  },
+  "post_eval_2026-03-18_14:00_FOMC Decision": 1773857639.0849917,
+  "price_at_2026-03-18_14:30_Powell Press Conference": {
+    "btc": 71661.0,
+    "eth": 2195.84,
+    "ts": 1773858502.8480566
+  },
+  "post_eval_2026-03-18_14:30_Powell Press Conference": 1773859402.8480566,
+  "price_at_2026-03-19_08:30_Housing Starts": {
+    "btc": 69575.1,
+    "eth": 2154.64,
+    "ts": 1773923290.6778247
+  },
+  "post_eval_2026-03-19_08:30_Housing Starts": 1773924190.6778247
 }

@@ -195,13 +195,13 @@ class TrackManager:
         trade_count      = len(trades)
 
         # Win rate
-        closed = [t for t in trades if t["pnl"] != 0]
-        wins   = [t for t in closed if t["pnl"] > 0]
+        closed = [t for t in trades if t.get("pnl", 0) != 0]
+        wins   = [t for t in closed if t.get("pnl", 0) > 0]
         win_rate = _r2(len(wins) / len(closed) * 100) if closed else 0.0
 
         # Best / worst trade
-        best_trade  = max((t["pnl"] for t in closed), default=0.0)
-        worst_trade = min((t["pnl"] for t in closed), default=0.0)
+        best_trade  = max((t.get("pnl", 0) for t in closed), default=0.0)
+        worst_trade = min((t.get("pnl", 0) for t in closed), default=0.0)
 
         # Max drawdown (from daily snapshots)
         max_dd = 0.0
