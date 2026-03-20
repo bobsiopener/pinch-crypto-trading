@@ -1,7 +1,7 @@
 {
   "start_ts": 1773238138.1549878,
-  "last_btc": 69642.6,
-  "last_eth": 2130.93,
+  "last_btc": 69636.1,
+  "last_eth": 2125.99,
   "calendar_alerted": {
     "2026-03-12_08:30_PPI": [],
     "2026-03-13_08:30_Core PCE": [],
@@ -42,7 +42,12 @@
       "on_event",
       "post_eval"
     ],
-    "2026-03-20_08:30_Initial Jobless Claims": [],
+    "2026-03-20_08:30_Initial Jobless Claims": [
+      "30m",
+      "5m",
+      "on_event",
+      "post_eval"
+    ],
     "2026-03-20_16:00_GEMI Options Expiry": [],
     "2026-03-26_10:00_Consumer Confidence": [],
     "2026-03-27_08:30_GDP (Q4 Final)": [],
@@ -66,8 +71,8 @@
     "2026-05-29_08:00_BTC Options Expiry \u2014 Monthly (Deribit)": [],
     "2026-06-26_08:00_BTC Options Expiry \u2014 Quarterly (Deribit)": []
   },
-  "last_heartbeat": 1773916962.592937,
-  "last_save_ts": 1773929499.6479406,
+  "last_heartbeat": 1774018031.193589,
+  "last_save_ts": 1774028981.8304837,
   "price_at_2026-03-12_08:30_PPI (February)": {
     "btc": 70417.6,
     "eth": 2064.52,
@@ -103,5 +108,11 @@
     "eth": 2154.64,
     "ts": 1773923290.6778247
   },
-  "post_eval_2026-03-19_08:30_Housing Starts": 1773924190.6778247
+  "post_eval_2026-03-19_08:30_Housing Starts": 1773924190.6778247,
+  "price_at_2026-03-20_08:30_Initial Jobless Claims": {
+    "btc": 70425.6,
+    "eth": 2141.74,
+    "ts": 1774009720.6837966
+  },
+  "post_eval_2026-03-20_08:30_Initial Jobless Claims": 1774010620.6837966
 }

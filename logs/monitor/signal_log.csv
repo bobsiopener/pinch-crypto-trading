@@ -5,3 +5,4 @@ timestamp_et,event,importance,btc_move_pct,eth_move_pct,score,direction
 2026-03-18 14:14,FOMC Decision,critical,0.36,0.54,0,NEUTRAL
 2026-03-18 14:43,Powell Press Conference,critical,0.03,0.35,0,NEUTRAL
 2026-03-19 08:43,Housing Starts,low,0.13,0.06,0,NEUTRAL
+2026-03-20 08:43,Initial Jobless Claims,low,-0.15,-0.18,0,NEUTRAL

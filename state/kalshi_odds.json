@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-03-20T13:49:49.710879-04:00",
+  "balance": 270.58,
+  "portfolio_value": 14.07,
+  "total": 284.65,
+  "positions": {
+    "KXRECSSNBER-26": {
+      "contracts": 30.0,
+      "exposure": 8.4,
+      "realized_pnl": 0.0,
+      "total_cost": 8.4
+    },
+    "KXECONPATH-26-STAG": {
+      "contracts": 11.0,
+      "exposure": 2.2,
+      "realized_pnl": 0.0,
+      "total_cost": 2.2
+    }
+  },
+  "markets": {
+    "KXRECSSNBER-26": {
+      "title": "Will there be a recession in 2026?",
+      "yes_bid": 0.36,
+      "yes_ask": 0.37,
+      "last": 0.37,
+      "change": 0.0,
+      "volume_24h": 30357.0,
+      "open_interest": 326082.0,
+      "status": "active",
+      "expires": "2027-01-31T15:00:00Z"
+    },
+    "KXECONPATH-26-STAG": {
+      "title": "State of the economy at the end of 2026?",
+      "yes_bid": 0.26,
+      "yes_ask": 0.27,
+      "last": 0.27,
+      "change": 0.0,
+      "volume_24h": 444.0,
+      "open_interest": 6294.0,
+      "status": "active",
+      "expires": "2027-01-13T14:55:00Z"
+    }
+  },
+  "discovered": []
+}
